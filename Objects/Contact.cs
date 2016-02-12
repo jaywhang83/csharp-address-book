@@ -82,7 +82,7 @@ namespace AddressBook.Objects
 
       foreach(Contact contact in Contacts)
       {
-        if (name == contact.GetName())
+        if (contact.GetName().ToLower().Contains(name.ToLower()))
         {
           results.Add(contact);
         }
@@ -90,11 +90,12 @@ namespace AddressBook.Objects
       return results;
     }
 
+// To remove and areturn item from the List, array, or Dictionary you have to use for loop and interate backwards
     public static List<Contact> DeleteContact(string name)
     {
       for(int i = Contacts.Count - 1; i >= 0; i--)
       {
-        if(Contacts[i].GetName().Contains(name.ToLower()))
+        if(Contacts[i].GetName().ToLower().Contains(name.ToLower()))
         {
           Contacts.RemoveAt(i);
         }
