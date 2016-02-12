@@ -12,8 +12,10 @@ else
         <ul>
           <li>Phone Number: @contact.GetPhoneNumber()</li>
           <li>Address: @contact.GetAddress()</li>
+          <form action="/edit_button">
+            <button id ="edit" type="click" onClick ="@contact.GetId()">Edit</button>
+          </form>
         </ul>
-        @Html.Partial("edit_button.cshtml")
      }
   </ul>
 }
