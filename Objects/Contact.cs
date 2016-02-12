@@ -15,8 +15,9 @@ namespace AddressBook.Objects
     public Contact(string name, string phoneNumber, string address)
     {
       Name = name;
-      phoneNumber = phoneNumber;
+      PhoneNumber = phoneNumber;
       Address = address;
+      Contacts.Add(this); 
       Id = Contacts.Count;
     }
 
@@ -55,9 +56,9 @@ namespace AddressBook.Objects
       return Id;
     }
 
-    public static void Save()
+    public static void Save(Contact contact)
     {
-      Contacts.Add(this);
+      Contacts.Add(contact);
     }
 
     public static List<Contact> GetAll()
