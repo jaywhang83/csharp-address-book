@@ -17,7 +17,7 @@ namespace AddressBook.Objects
       Name = name;
       PhoneNumber = phoneNumber;
       Address = address;
-      Contacts.Add(this); 
+      Contacts.Add(this);
       Id = Contacts.Count;
     }
 
@@ -74,6 +74,20 @@ namespace AddressBook.Objects
     public static Contact Find(int searchId)
     {
       return Contacts[searchId - 1];
+    }
+
+    public static List<Contact> searchContact(string name)
+    {
+      List<Contact> results = new List<Contact>() {};
+
+      foreach(Contact contact in Contacts)
+      {
+        if (name == contact.GetName())
+        {
+          results.Add(contact);
+        }
+      }
+      return results;
     }
   }
 }

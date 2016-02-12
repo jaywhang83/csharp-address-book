@@ -1,10 +1,7 @@
-@if (@Model.Count == 0)
+
+@if (@Model.Count != 0)
 {
-  @Html.Partial("no_contact.cshtml");
-}
-else
-{
-  <h1>Here are the existing contacts</h1>
+  @Html.Partial("found_contact.cshtml");
   <ul>
     @foreach (var contact in Model)
     {
@@ -16,11 +13,11 @@ else
     }
   </ul>
 }
-
+else
+{
+  <h2>There is no matching contact</h2>
+}
 
 <form action="/">
   <button type="click">Home</button>
-</form>
-<form action="/contacts_deleted" method="post">
-  <button type="submit">Delete all contact</button>
 </form>

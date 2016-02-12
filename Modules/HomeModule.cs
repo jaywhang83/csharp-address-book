@@ -44,6 +44,13 @@ namespace ContactList
         Contact.Save(contact);
         return View["contact_created.cshtml", contact];
       };
+      Get["/search/contact"] = _ => View["search_contact_form.cshtml"];
+      Post["/view_search_results"] = _ =>
+      {
+        string name = Request.Form["contact-name"];
+        List<Contact> results = Contact.searchContact(name);
+        return View["view_search_results.cshtml", results];
+      };
     }
   }
 }
