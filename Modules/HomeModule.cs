@@ -58,6 +58,8 @@ namespace ContactList
         List<Contact> results = Contact.SearchContact(name);
         return View["view_search_results.cshtml", results];
       };
+
+      Get["/edit_button"] = _ => View["edit_form.cshtml"];
     }
   }
 }

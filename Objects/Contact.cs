@@ -90,7 +90,7 @@ namespace AddressBook.Objects
       return results;
     }
 
-// To remove and areturn item from the List, array, or Dictionary you have to use for loop and interate backwards
+// To remove and return item from the List, array, or Dictionary you have to use for loop and interate backwards
     public static List<Contact> DeleteContact(string name)
     {
       for(int i = Contacts.Count - 1; i >= 0; i--)
