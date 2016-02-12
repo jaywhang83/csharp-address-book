@@ -76,7 +76,7 @@ namespace AddressBook.Objects
       return Contacts[searchId - 1];
     }
 
-    public static List<Contact> searchContact(string name)
+    public static List<Contact> SearchContact(string name)
     {
       List<Contact> results = new List<Contact>() {};
 
@@ -88,6 +88,18 @@ namespace AddressBook.Objects
         }
       }
       return results;
+    }
+
+    public static List<Contact> DeleteContact(string name)
+    {
+      for(int i = Contacts.Count - 1; i >= 0; i--)
+      {
+        if(Contacts[i].GetName().Contains(name.ToLower()))
+        {
+          Contacts.RemoveAt(i);
+        }
+      }
+      return Contacts;
     }
   }
 }

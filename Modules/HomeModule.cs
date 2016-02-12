@@ -28,6 +28,13 @@ namespace ContactList
         Contact.DeleteAll();
         return View["contacts_deleted.cshtml"];
       };
+      Get["/delete_contact"] = _ => View["delete_contact_form.cshtml"];
+      Post["/view_contacts"] = _ =>
+      {
+        string name = Request.Form["delete-contact"];
+        List<Contact> allContacts = Contact.DeleteContact(name);
+        return View["/view_contacts.cshtml", allContacts];
+      };
       Get["/contact/new"] = _ =>
       {
         return View["new_contact_form.cshtml"];
@@ -48,7 +55,7 @@ namespace ContactList
       Post["/view_search_results"] = _ =>
       {
         string name = Request.Form["contact-name"];
-        List<Contact> results = Contact.searchContact(name);
+        List<Contact> results = Contact.SearchContact(name);
         return View["view_search_results.cshtml", results];
       };
     }
